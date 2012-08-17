@@ -1,7 +1,6 @@
 
 (in-package :cl-enet)
 
-;(defun load-libenet ()
 (cl:eval-when (:load-toplevel :execute)
   (define-foreign-library libenet
     (t (:default "libenet")))
@@ -24,6 +23,16 @@
   (host enet-host)
   (event enet-event)
   (timeout :uint32))
+
+(defcfun "enet_address_set_host" :int
+  (address enet-address)
+  (host-name :string))
+
+(defcfun "enet_host_connect" :pointer
+  (host enet-host)
+  (address enet-address)
+  (channel-count :ulong)
+  (data :uint32))
     
 ;;;
 ;;;

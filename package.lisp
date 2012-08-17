@@ -7,6 +7,8 @@
    :enet-initialize
    :enet-host-create
    :enet-host-service
+   :enet-address-set-host
+   :enet-host-connect
    :run-simple-server
    ;;enums
    :enet-version
