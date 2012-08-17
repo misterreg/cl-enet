@@ -1,62 +1,13 @@
 
-(declaim (optimize (speed 0) (space 0) (debug 3)))
+(in-package :cl-enet)
 
-(require 'cffi)
-
-(in-package :cl-user)
-
-(defpackage :cffi-user
-  (:use :common-lisp :cffi))
-
-(in-package :cffi-user)
-
-(define-foreign-library libenet
-    (t (:default "libenet")))
-
-(use-foreign-library libenet)
+(defun load-libenet ()
+  (define-foreign-library libenet
+      (t (:default "libenet")))
+  (use-foreign-library libenet))
 
 ;;;
-;;; types
 ;;;
-(defctype enet-address :pointer)
-(defctype enet-host :pointer)
-(defctype enet-event :pointer)
-(defctype enet-peer :pointer)
-(defctype enet-packet :pointer)
-
-;;;
-;;; enums
-;;;
-
-(defcenum enet-event-type
-  (:enet-event-type-none 0)
-  (:enet-event-type-connect 1)
-  (:enet-event-type-disconnect 2)
-  (:enet-event-type-receive 3))
-
-;;;
-;;; structs
-;;;
-(defcstruct enet-address
-  (host :uint32)
-  (port :uint16))
-
-(defcstruct enet-event
-  (event-type enet-event-type)
-  (peer enet-peer)
-  (channel-id :uint8)
-  (data :uint32)
-  (packet enet-packet))
-
-(defcstruct enet-packet
-  (reference-count :pointer) ;not really a pointer but we want it that size
-  (flags :uint32)
-  (data :pointer)
-  (data-length :uint64)
-  (free-callback :pointer))
-
-;;;
-;;; functions
 ;;;
 
 (defcfun "enet_initialize" :int)
