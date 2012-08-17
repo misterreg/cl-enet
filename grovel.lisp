@@ -3,11 +3,11 @@
 (include "/usr/local/include/enet/enet.h")
 
 ;;;
-(ctype enet-address "struct ENetAddress*")
-(ctype enet-host "struct ENetHost*")
-(ctype enet-event "struct ENetEvent*")
-(ctype enet-peer "struct ENetEvent*")
-(ctype enet-packet "struct ENetEvent*")
+(ctype enet-address-ptr "struct ENetAddress*")
+(ctype enet-host-ptr "struct ENetHost*")
+(ctype enet-event-ptr "struct ENetEvent*")
+(ctype enet-peer-ptr "struct ENetEvent*")
+(ctype enet-packet-ptr "struct ENetEvent*")
 
 ;;;
 (constantenum enet-version
@@ -61,10 +61,10 @@
 
 (cstruct enet-event "ENetEvent"
          (event-type "type" :type enet-event-type)
-         (peer "peer" :type enet-peer)
+         (peer "peer" :type enet-peer-ptr)
          (channel-id "channelID" :type :uint8)
          (data "data" :type :uint32 )
-         (packet "packet" :type enet-packet))
+         (packet "packet" :type enet-packet-ptr))
 
 (cstruct enet-packet "ENetPacket"
          (reference-count "referenceCount" :type :ulong)

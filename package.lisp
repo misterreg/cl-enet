@@ -1,5 +1,5 @@
 (in-package :cl-user)
 
 (defpackage :cl-enet 
-  (:use :cl)
+  (:use :cl :cffi)
   (:export :enet-initialize))

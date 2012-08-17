@@ -1,9 +1,10 @@
 
 (in-package :cl-enet)
 
-(defun load-libenet ()
+;(defun load-libenet ()
+(cl:eval-when (:load-toplevel :execute)
   (define-foreign-library libenet
-      (t (:default "libenet")))
+    (t (:default "libenet")))
   (use-foreign-library libenet))
 
 ;;;
