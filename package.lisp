@@ -9,9 +9,15 @@
    :enet-host-service
    :enet-address-set-host
    :enet-host-connect
+   :enet-packet-create
+   :enet-peer-send
+   :enet-packet-destroy
    :run-simple-server
    ;;enums
-   :enet-version
+   :enet-packet-flag-reliable
+   :enet-packet-flag-unsequenced
+   :enet-packet-flag-no-allocate
+   :enet-packet-flag-unreliable-fragment
    :enet-version-major
    :enet-socket-type
    :enet-socket-type-stream
@@ -25,6 +31,7 @@
    :enet-host
    :enet-event
    :enet-packet
+   :enet-peer
    ;;enet-address slots
    :host
    :port
@@ -70,5 +77,66 @@
    :flags
    :data
    :data-length
-   :free-callback))
+   :free-callback
+   ;;enet-peer slots
+   :dispatch-list
+   :host
+   :outgoing-peer-id
+   :incoming-peer-id
+   :connect-id
+   :outgoing-session-id
+   :incoming-session-id
+   :address
+   :data
+   :state
+   :channels
+   :channel-count
+   :incoming-bandwidth
+   :outgoing-bandwidth
+   :incoming-bandwidth-throttle-epoch
+   :outgoing-bandwidth-throttle-epoch
+   :incoming-data-total
+   :outgoing-data-total
+   :last-send-time
+   :last-receive-time
+   :next-timeout
+   :earliest-timeout
+   :packet-loss-epoch
+   :packets-sent
+   :packets-lost
+   :packet-loss
+   :packet-loss-variance
+   :packet-throttle
+   :packet-throttle-limit
+   :packet-throttle-counter
+   :packet-throttle-epoch
+   :packet-throttle-acceleration
+   :packet-throttle-deceleration
+   :packet-throttle-interval
+   :ping-interval
+   :timeout-limit
+   :timeout-minimum
+   :timeout-maximum
+   :last-round-trip-time
+   :lowest-round-trip-time
+   :last-round-trip-time-variance
+   :highest-round-trip-time-variance
+   :round-trip-time
+   :round-trip-time-variance
+   :mtu
+   :window-size
+   :reliable-data-in-transit
+   :outgoing-reliable-sequence-number
+   :acknowledgements
+   :sent-reliable-commands
+   :sent-unreliable-commands
+   :outgoing-reliable-commands
+   :outgoing-unreliable-commands
+   :dispatched-commands
+   :needs-dispatch
+   :incoming-unsequenced-group
+   :outgoing-unsequenced-group
+   :unsequenced-window
+   :event-data))
+
            

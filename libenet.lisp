@@ -33,6 +33,19 @@
   (address enet-address)
   (channel-count :ulong)
   (data :uint32))
+
+(defcfun "enet_packet_create" enet-packet
+  (data :pointer)
+  (data-length :ulong)
+  (flags :uint32))
+
+(defcfun "enet_peer_send" :int
+  (peer enet-peer)
+  (channel-id :uint8)
+  (packet enet-packet))
+
+(defcfun "enet_packet_destroy" :int
+  (packet enet-packet))
     
 ;;;
 ;;;
