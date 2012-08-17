@@ -21,16 +21,10 @@
           (clear-output)
           (when (>= result 0)
             (with-foreign-slots ((event-type) event enet-event)            
-              (cond ((eql event-type 
-                          (foreign-enum-value 'enet-event-type 
-                                              :enet-event-type-connect))
+              (cond ((equal event-type :enet-event-type-connect)
                      (format t "new connection~%"))
-                    ((eql event-type 
-                          (foreign-enum-value 'enet-event-type 
-                                              :enet-event-type-receive))
+                    ((equal event-type :enet-event-type-receive)
                      (format t "receive data~%"))
-                    ((eql event-type 
-                          (foreign-enum-value 'enet-event-type 
-                                              :enet-event-type-disconnect))
+                    ((equal event-type :enet-event-type-disconnect)
                      (format t "disconnect~%"))
-                    (t (format t "unknown event!~%"))))))))))
+                    (t t)))))))))
