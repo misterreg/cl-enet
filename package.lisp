@@ -3,16 +3,7 @@
 (defpackage :cl-enet 
   (:use :cl :cffi)
   (:export 
-   ;;functions
-   :enet-initialize
-   :enet-host-create
-   :enet-host-service
-   :enet-address-set-host
-   :enet-host-connect
-   :enet-packet-create
-   :enet-peer-send
-   :enet-packet-destroy
-   :run-simple-server
+   ;;functions exportet in libenet
    ;;enums
    :enet-packet-flag-reliable
    :enet-packet-flag-unsequenced
